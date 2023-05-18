@@ -1,0 +1,9 @@
+﻿  add.c
+G:\C类学习资料\C成品\gjd_c\add.c(7,12): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  main.c
+G:\C类学习资料\C成品\gjd_c\main.c(8,8): warning C4477: “scanf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 1 拥有了类型“int”
+G:\C类学习资料\C成品\gjd_c\main.c(8,8): warning C4477: “scanf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 2 拥有了类型“int”
+  mult.c
+  sub.c
+  正在生成代码...
+  gjd_c.vcxproj -> G:\C类学习资料\C成品\gjd_c\x64\Debug\gjd_c.exe
