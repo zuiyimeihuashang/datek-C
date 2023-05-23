@@ -1,4 +1,4 @@
-最后输入的密钥：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
+
 Username for 'https://github.com': zuiyimeihuashang
 Password for 'https://github.com/zuiyimeihuashang/luogu_yyn.git': new_token
 
