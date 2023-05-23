@@ -16,3 +16,5 @@ git config --global http.proxy  查询代理
 git config --global --unset http.proxy  取消代理
 git config --global http.proxy http:172.16.13.171:8080 设置代理
 git config --global https.proxy http:172.16.13.171:8080
+
+git rm --cached +文件名 ->这个命令不会删除物理文件，只是将已经add进缓存的文件删除。

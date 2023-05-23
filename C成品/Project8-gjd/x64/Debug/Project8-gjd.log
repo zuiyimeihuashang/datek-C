@@ -1,0 +1,62 @@
+﻿  main.c
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\errno.h(23,39): error C2085: “_errno”: 不在形参表中
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\errno.h(26,57): error C2085: “_set_errno”: 不在形参表中
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\errno.h(27,59): error C2085: “_get_errno”: 不在形参表中
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\errno.h(29,53): error C2085: “__doserrno”: 不在形参表中
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\errno.h(32,70): error C2085: “_set_doserrno”: 不在形参表中
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\errno.h(33,73): error C2085: “_get_doserrno”: 不在形参表中
+D:\VS\VS1\VC\Tools\MSVC\14.35.32215\include\vcruntime_string.h(26,6): error C2085: “memchr”: 不在形参表中
+D:\VS\VS1\VC\Tools\MSVC\14.35.32215\include\vcruntime_string.h(33,6): error C2085: “memcmp”: 不在形参表中
+D:\VS\VS1\VC\Tools\MSVC\14.35.32215\include\vcruntime_string.h(47,6): error C2085: “memcpy”: 不在形参表中
+D:\VS\VS1\VC\Tools\MSVC\14.35.32215\include\vcruntime_string.h(54,6): error C2085: “memmove”: 不在形参表中
+D:\VS\VS1\VC\Tools\MSVC\14.35.32215\include\vcruntime_string.h(67,6): error C2085: “memset”: 不在形参表中
+D:\VS\VS1\VC\Tools\MSVC\14.35.32215\include\vcruntime_string.h(73,6): error C2085: “strchr”: 不在形参表中
+D:\VS\VS1\VC\Tools\MSVC\14.35.32215\include\vcruntime_string.h(79,6): error C2085: “strrchr”: 不在形参表中
+D:\VS\VS1\VC\Tools\MSVC\14.35.32215\include\vcruntime_string.h(85,6): error C2085: “strstr”: 不在形参表中
+D:\VS\VS1\VC\Tools\MSVC\14.35.32215\include\vcruntime_string.h(92,6): error C2085: “wcschr”: 不在形参表中
+D:\VS\VS1\VC\Tools\MSVC\14.35.32215\include\vcruntime_string.h(98,6): error C2085: “wcsrchr”: 不在形参表中
+D:\VS\VS1\VC\Tools\MSVC\14.35.32215\include\vcruntime_string.h(105,6): error C2085: “wcsstr”: 不在形参表中
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(45,5): error C2085: “memcpy_s”: 不在形参表中
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(45,5): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(46,25): error C2065: “_SourceSize”: 未声明的标识符
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(51,9): error C2065: “_Destination”: 未声明的标识符
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(51,9): warning C4047: “!=”:“int”与“void *”的间接级别不同
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(51,9): warning C4013: “_errno”未定义；假设外部返回 int
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(51,9): error C2100: 非法的间接寻址
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(51,9): error C2106: “=”: 左操作数必须为左值
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(51,9): warning C4047: “return”:“char *”与“int”的间接级别不同
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(52,21): error C2065: “_Source”: 未声明的标识符
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(52,29): warning C4047: “==”:“int”与“void *”的间接级别不同
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(52,49): error C2065: “_DestinationSize”: 未声明的标识符
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(52,62): error C2065: “_SourceSize”: 未声明的标识符
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(54,13): warning C4013: “memset”未定义；假设外部返回 int
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(54,32): error C2065: “_Destination”: 未声明的标识符
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(54,53): error C2065: “_DestinationSize”: 未声明的标识符
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(56,13): error C2065: “_Source”: 未声明的标识符
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(56,13): warning C4047: “!=”:“int”与“void *”的间接级别不同
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(56,13): error C2100: 非法的间接寻址
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(56,13): error C2106: “=”: 左操作数必须为左值
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(56,13): warning C4047: “return”:“char *”与“int”的间接级别不同
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(57,13): error C2065: “_DestinationSize”: 未声明的标识符
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(57,13): error C2065: “_SourceSize”: 未声明的标识符
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(57,13): error C2100: 非法的间接寻址
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(57,13): error C2106: “=”: 左操作数必须为左值
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(57,13): warning C4047: “return”:“char *”与“int”的间接级别不同
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(60,26): warning C4047: “return”:“char *”与“int”的间接级别不同
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(62,9): warning C4013: “memcpy”未定义；假设外部返回 int
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(62,28): error C2065: “_Destination”: 未声明的标识符
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(62,37): error C2065: “_Source”: 未声明的标识符
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(62,50): error C2065: “_SourceSize”: 未声明的标识符
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(79,9): error C2100: 非法的间接寻址
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(79,9): error C2106: “=”: 左操作数必须为左值
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(80,9): error C2100: 非法的间接寻址
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(80,9): error C2106: “=”: 左操作数必须为左值
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(81,9): error C2100: 非法的间接寻址
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(81,9): error C2106: “=”: 左操作数必须为左值
+D:\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_memcpy_s.h(83,9): warning C4013: “memmove”未定义；假设外部返回 int
+G:\C类学习资料\C成品\Project8-gjd\main.c(8,8): warning C4477: “scanf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 1 拥有了类型“int”
+G:\C类学习资料\C成品\Project8-gjd\main.c(8,8): warning C4477: “scanf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 2 拥有了类型“int”
+G:\C类学习资料\C成品\Project8-gjd\main.c(9,17): warning C4047: “函数”:“char **”与“char [100]”的间接级别不同
+G:\C类学习资料\C成品\Project8-gjd\main.c(9,16): warning C4024: “add”: 形参和实参 1 的类型不同
+G:\C类学习资料\C成品\Project8-gjd\main.c(9,20): warning C4047: “函数”:“char **”与“char [100]”的间接级别不同
+G:\C类学习资料\C成品\Project8-gjd\main.c(9,19): warning C4024: “add”: 形参和实参 2 的类型不同
