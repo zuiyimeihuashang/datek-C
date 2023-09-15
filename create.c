@@ -19,7 +19,7 @@ seqlist * create_list(int m) {
 			plist ->n = 0;
 			return plist;
 		} else {
-			free(plist);
+			免费(plist);
 			printf("number space error");
 		}
 	} else {
