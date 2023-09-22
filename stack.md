@@ -6,11 +6,11 @@
 int main() {
 	seqstack *pstack = create_stack(MAX);
 	DateType str[MAX] = {'\0'};//31+2*2/  {[(3+1)*2]/2}
-	gets(str);
+	gets(str);puts(str);
 	int x =0,i=0;
 	while(re_stack(pstack,str) != 0){
 		printf("Enter error,please enter again:\n");
-		gets(str);
+		gets(str);puts(str);
 	}
 	mksufiic_stack(pstack,str);
 	x = math_stack(pstack,str);
@@ -126,7 +126,7 @@ int link(char operator1) {//返回运算优先级
     }
     return -1;
 }
-int fuhao(char a){//符号的映射 
+int fuhao(char a){//给符号一个数值 
 	switch (a){
 		case '(':return 1;
 		case ')':return -1;
@@ -142,12 +142,19 @@ int re_stack(seqstack *pstack,  const char *str) {//判断是否符号是否匹�
 	int i, len = strlen(str);
 
 	for (i = 0; i < len; i++) {
+		if(str[i]<0||str[i]>255){
+			while(pop_stack!=-1);
+			return -1;
+		} 
 		if (fuhao(str[i])>0) {
 			push_stack(pstack, str[i]);
 		} else if (fuhao(str[i]) < 0) {
 			DateType re = pop_stack(pstack);
             // "()[]{}" ASCLL 40 41 91 93 123 125
-            if(fuhao(re)+fuhao(str[i])!=0)return -1;
+            if(fuhao(re)+fuhao(str[i])!=0){
+				while(pop_stack!=-1);
+				return -1;            	
+			}
 		}
 	}
 	return 0;
