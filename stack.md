@@ -55,8 +55,8 @@ seqstack   *create_stack(int m) { //创建空栈
 
 void push_stack(seqstack *pstack, DateType x) { //压栈
 
-	if (++pstack->top < pstack->MAXNUM) {
-		pstack->element[pstack->top] = x;
+	if (pstack->top+1 < pstack->MAXNUM) {
+		pstack->element[++pstack->top] = x;
 	} else {
 		printf("overflow\n");
 	}
