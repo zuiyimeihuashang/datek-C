@@ -5,8 +5,13 @@
 
 int main() {
 	seqstack *pstack = create_stack(MAX);
-	DateType str[MAX] = "{[(3+1)*2]/2}";//31+2*2/  {[(3+1)*2]/2}
+	DateType str[MAX] = {'\0'};//31+2*2/  {[(3+1)*2]/2}
+	gets(str);
 	int x =0,i=0;
+	while(re_stack(pstack,str) != 0){
+		printf("Enter error,please enter again:\n");
+		gets(str);
+	}
 	mksufiic_stack(pstack,str);
 	x = math_stack(pstack,str);
 	printf("%s\n",str);
@@ -110,32 +115,7 @@ void print_stack(seqstack *pstack) {
 
 /*以下不属于stack基础操作*/
 
-int re_stack(seqstack *pstack, char *str) {//判断是否符号是否匹配，匹配返回0反之返回-1.
-	int i, len = strlen(str);
-
-	for (i = 0; i < len; i++) {
-		if (str[i] == '(' || str[i] == '{' || str[i] == '[') {
-			push_stack(pstack, str[i]);
-		} else if (str[i] == ')' || str[i] == '}' || str[i] == ']') {
-			DateType re = pop_stack(pstack);
-            // "()[]{}" ASCLL 40 41 91 93 123 125
-			if (re == 123 && str[i] != 125) {
-				return -1;
-			}
-
-			if (re == 40 && str[i] != 41) {
-				return -1;
-			}
-
-			if (re== 91 && str[i] != 93) {
-				return -1;
-			}
-		}
-	}
-	return 0;
-}
-
-int link(char operator1) {
+int link(char operator1) {//返回运算优先级 
     switch (operator1) {
         case '+':
         case '-':
@@ -146,7 +126,7 @@ int link(char operator1) {
     }
     return -1;
 }
-int fuhao(char a){
+int fuhao(char a){//符号的映射 
 	switch (a){
 		case '(':return 1;
 		case ')':return -1;
@@ -157,6 +137,23 @@ int fuhao(char a){
 	}
 	return 0;
 }
+
+int re_stack(seqstack *pstack,  const char *str) {//判断是否符号是否匹配，匹配返回0反之返回-1.
+	int i, len = strlen(str);
+
+	for (i = 0; i < len; i++) {
+		if (fuhao(str[i])>0) {
+			push_stack(pstack, str[i]);
+		} else if (fuhao(str[i]) < 0) {
+			DateType re = pop_stack(pstack);
+            // "()[]{}" ASCLL 40 41 91 93 123 125
+            if(fuhao(re)+fuhao(str[i])!=0)return -1;
+		}
+	}
+	return 0;
+}
+
+
 void mksufiic_stack(seqstack * pstack,DateType * sufiic){
 	
 	int i,len=strlen(sufiic),cnt=0;
