@@ -161,7 +161,7 @@ int re_stack(seqstack *pstack,  const char *str) {//判断是否符号是否匹�
 }
 
 
-void mksufiic_stack(seqstack * pstack,DateType * sufiic){
+void mksufiic_stack(seqstack * pstack,DateType * sufiic){//中缀表达式转后缀表达式
 	
 	int i,len=strlen(sufiic),cnt=0;
 	char out[1000]={'\0'};
@@ -199,7 +199,7 @@ void mksufiic_stack(seqstack * pstack,DateType * sufiic){
 	}
 	strcpy(sufiic,out);	
 }
-int math_stack(seqstack * pstack,char * math){
+int math_stack(seqstack * pstack,char * math){//后缀表达式的计算
 	int i,len = strlen(math);
 	char z='\0';
 	//pstack->element[pstack->top]
