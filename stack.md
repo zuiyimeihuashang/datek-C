@@ -143,7 +143,7 @@ int re_stack(seqstack *pstack,  const char *str) {//判断是否符号是否匹�
 
 	for (i = 0; i < len; i++) {
 		if(str[i]<0||str[i]>255){
-			while(pop_stack!=-1);
+			while(pop_stack(pstack)!=-1);
 			return -1;
 		} 
 		if (fuhao(str[i])>0) {
@@ -152,7 +152,7 @@ int re_stack(seqstack *pstack,  const char *str) {//判断是否符号是否匹�
 			DateType re = pop_stack(pstack);
             // "()[]{}" ASCLL 40 41 91 93 123 125
             if(fuhao(re)+fuhao(str[i])!=0){
-				while(pop_stack!=-1);
+				while(pop_stack(pstack)!=-1);
 				return -1;            	
 			}
 		}
