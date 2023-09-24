@@ -189,7 +189,7 @@ void mksufiic_stack(seqstack * pstack,DateType * sufiic){//中缀表达式转后
 		}
 		if(i==len-1){
 			while(pstack->top!=-1){
-				if(fuhao(top_stack(pstack))>0){
+				if(fuhao(top_stack(pstack))==0){
 					out[cnt++]=pop_stack(pstack);
 				}else{
 					pop_stack(pstack);
