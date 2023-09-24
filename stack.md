@@ -142,7 +142,7 @@ int re_stack(seqstack *pstack,  const char *str) {//判断是否符号是否匹�
 	int i, len = strlen(str);
 
 	for (i = 0; i < len; i++) {
-		if(str[i]<0||str[i]>255){
+		if(str[i]>-1||str[i]<256){
 			while(pop_stack(pstack)!=-1);
 			return -1;
 		} 
