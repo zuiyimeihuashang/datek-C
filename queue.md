@@ -1,19 +1,29 @@
 # 主函数
 ```
 #include "queue.h"
-
+#define MAX 20
+ 
 int main(){
 	
-	int i=0,j,x[]={5,4,3,2,1};
-	keyword(x,5);
-	for(i=0;i<5;i++){
+	int i=0,j,num,*x ;//{3,3,1,6,0,6,5,9,9,7}
+	printf("请输入需要加密的数字个数：\n");
+	scanf("%d",&num);
+	printf("请输入需要加密数字,以空格隔开：\n");
+	if(!(x=(int *)malloc(num*sizeof(DateType))))return -1; 
+	queue * p =creat_queue(MAX);
+	for(i=0;i<num;i++){
+		scanf("%d",&x[i]);
+	}
+	keyword(p,x,num);
+	for(i=0;i<num;i++){
 		printf("%d",x[i]);
 	}printf("\n");
-	password(x,5);  
-	for(i=0;i<5;i++){
+	password(p,x,num);  
+	for(i=0;i<num;i++){
 		printf("%d",x[i]);
 	}printf("\n");
-
+	 
+	free(p);
 	return 0;
 }
 ```
@@ -32,14 +42,13 @@ typedef struct queue{
 	int f,r;
 }queue;
 
-queue* creat_queue(int max){//创建有MAX个元素的队列 
+queue * creat_queue(int max){//创建有MAX个元素的队列 
 	max=max+1;
-	queue * pqueue = (queue*)malloc(sizeof(queue));
-	if(pqueue==NULL){
+	queue * pqueue;
+	if(!(pqueue = (queue*)malloc(sizeof(queue)))){
 		return NULL;
 	}else{
-		pqueue->element=(DateType*)malloc(max*sizeof(DateType));
-		if(pqueue->element==NULL){
+		if(!(pqueue->element=(DateType*)malloc(max*sizeof(DateType)))){
 			free(pqueue);
 			return NULL;
 		}else{
@@ -52,7 +61,7 @@ queue* creat_queue(int max){//创建有MAX个元素的队列
 
 DateType pop_queue(queue* pqueue){//删除并返回队头元素 
 	if(pqueue->r!=pqueue->f){
-		int x = pqueue->element[pqueue->f];
+		DateType x = pqueue->element[pqueue->f];
 		pqueue->f=(pqueue->f+1)%pqueue->MAXNUM;
 		return x;
 	}else{
@@ -87,38 +96,54 @@ void print(queue * pqueue){
 	}
 	printf("\n");
 }
-//以下不属于queue基础操作
-void keyword(DateType * x,int num){//加密QQ号 
-	queue * p = creat_queue(num);
-	int i,j;// pqueue->element[0] pqueue->element[1] pqueue->element[2]
+
+//以下不属于栈的基操
+int keyword(queue * p,DateType*  x,int num){//加密QQ号 
+
+	int i,j,k,cnt=0; 
+	p->r=0;p->f=0;
+	DateType * in;
+	if(!(in = (DateType*)malloc(num*sizeof(DateType))))return -1;
 	if(num%2!=0){
 		j=num/2+1;
 	}else{
 		j=num/2;
 	}
-	for(i=0;i<j;i++){//pqueue->element[4] pqueue->element[3]pqueue->element[5]
-		install_queue(p,x[i]);
-		if(i!=(num-i-1))install_queue(p,x[num-i-1]);
-	}
-	for(i=0;i<num;i++){
-		x[num-i-1]=pop_queue(p);
-	}	
-	free(p);
-} 
-
-void password(DateType * x,int num){//解密QQ号 
-	queue * p =creat_queue(num);
-	int i,cnt=0;
-	for(i=0;i<num;i++){
-		install_queue(p,x[i]);
-	}
-	while(p->r!=p->f){
-		x[cnt++]=pop_queue(p);
+	for(i=1;i<=num;i++){
+		if(i<=j){
+			in[2*i-2]=x[i-1];
+			cnt=2*i-1;
+		}else{
+			install_queue(p,x[i-1]);
+		}
+	} 
+	if(j>num/2){//如有奇数个数 
 		i=pop_queue(p);
 		install_queue(p,i);
-	//	print(p);
 	}
-	free(p);	
-}
+	for(k=1;k<num;k+=2){
+		in[k]=pop_queue(p); 
+		i=pop_queue(p);
+		install_queue(p,i); 
+	}	
+	for(i=0;i<num;i++){
+		x[i]=in[i];
+	}
+	return 0;
+} 
+
+void password(queue * p,DateType * x,int num){//解密QQ号 
+
+	int i,j,cnt=0;
+	p->r=0;p->f=0;
+	for(i=0;i<num;i++){
+		install_queue(p,x[i]);
+	}
+	for(j=0;j<num;j++){
+		x[cnt++]=pop_queue(p); 
+		i=pop_queue(p);
+		install_queue(p,i); 
+	}	
+} 
 #endif 
 ```
