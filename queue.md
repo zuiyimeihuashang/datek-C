@@ -3,6 +3,48 @@
 #include "queue.h"
 #define MAX 20
 
+int keyword(queue *p, DateType  *x, int num) { //加密QQ号
+
+	int i, j, cnt = 0;
+	DateType * in;
+	p->r = 0;
+	p->f = 0;
+	if ((in=(DateType *)malloc(num*sizeof(DateType)))==NULL){
+		printf("空间不足");
+		return -1; 
+	}
+	
+	for (i = 0; i < num; i++) {
+		char key_in = i;
+		install_queue(p,key_in);
+		in[i]=x[i];
+	}
+ 
+	for (j = 0; j < num; j++) {
+		int ass  = pop_queue(p);
+		x[ass]=in[cnt++]; // x[cnt]; 
+		install_queue(p, pop_queue(p));
+	}
+
+	return 0;
+}
+
+void password(queue *p, DateType *x, int num) { //解密QQ号
+
+	int i, j, cnt = 0;
+	p->r = 0;
+	p->f = 0;
+
+	for (i = 0; i < num; i++) {
+		install_queue(p, x[i]);
+	}
+
+	for (j = 0; j < num; j++) {
+		x[cnt++] = pop_queue(p); 
+		install_queue(p,pop_queue(p));
+	}
+}
+ 
 int main(){
 	
 	int i=0,j,num;
@@ -10,8 +52,8 @@ int main(){
 	printf("请输入需要加密数字 ：\n");
 	if(!(x=(DateType *)malloc(num*sizeof(DateType))))return -1; 
 	queue * p =creat_queue(MAX);
-	num = strlen(x); 
 	scanf("%s",x); 
+	num = strlen(x); 
 	keyword(p,x,num); 
 	printf("keyword:%s\n",x); 
 	password(p,x,num);  
@@ -19,6 +61,7 @@ int main(){
 	free(p);
 	return 0;
 }
+ 
 ```
 # 头文件
 ```
@@ -99,48 +142,5 @@ void print(queue *pqueue) {
 	printf("\n");
 }
 
-int keyword(queue *p, DateType  *x, int num) { //加密QQ号
-
-	int i, j, cnt = 0;
-	DateType * in;
-	p->r = 0;
-	p->f = 0;
-	if ((in=(DateType *)malloc(num*sizeof(DateType)))==NULL){
-		printf("空间不足");
-		return -1; 
-	}
-	
-	for (i = 0; i < num; i++) {
-		char key_in = i +'0';
-		install_queue(p,key_in);
-	}
- 
-	for (j = 0; j < num; j++) {
-		int ass  = pop_queue(p)-'0';
-		in[ass] = x[cnt++]; //in[pop_queue(p)] = x[cnt++]; 
-		install_queue(p, pop_queue(p));
-	}
-	for(i=0;i<num;i++){
-		x[i]=in[i];
-	}
-	return 0;
-}
-
-void password(queue *p, DateType *x, int num) { //解密QQ号
-
-	int i, j, cnt = 0;
-	p->r = 0;
-	p->f = 0;
-
-	for (i = 0; i < num; i++) {
-		install_queue(p, x[i]);
-	}
-
-	for (j = 0; j < num; j++) {
-		x[cnt++] = pop_queue(p); 
-		install_queue(p,pop_queue(p));
-	}
-}
- 
-#endif
+#endif 
 ```
